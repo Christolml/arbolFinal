@@ -1,0 +1,9 @@
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\bin\Debug\arbolFinal.exe.config
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\bin\Debug\arbolFinal.exe
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\bin\Debug\arbolFinal.pdb
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\obj\Debug\arbolFinal.csprojResolveAssemblyReference.cache
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\obj\Debug\arbolFinal.Form1.resources
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\obj\Debug\arbolFinal.Properties.Resources.resources
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\obj\Debug\arbolFinal.csproj.GenerateResource.Cache
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\obj\Debug\arbolFinal.exe
+C:\Users\chris\Desktop\4 semestre\Estructura de datos\2da parcial\arbolFinal\arbolFinal\arbolFinal\obj\Debug\arbolFinal.pdb
