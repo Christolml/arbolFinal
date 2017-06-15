@@ -72,7 +72,6 @@ namespace arbolFinal
                 Primero = null;
                 Ultimo = null;
             }
-
         }
 
 

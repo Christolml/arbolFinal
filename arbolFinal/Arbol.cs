@@ -15,12 +15,8 @@ namespace arbolFinal
         private Nodo Ultimo;
 
 
-        private Caracter primeroPost;
-        private Caracter ultimoPre;
-
-        string mostrarPost2;
-
-        string mostrarPre2;
+        string mostrarPost2 = "";
+        string mostrarPre2 = "";
 
 
         /// <Principio>
@@ -30,14 +26,14 @@ namespace arbolFinal
         /// <returns></returns>
         public string leer(string entrada)
         {
-            string formula = entrada, salida="";
+            string formula = entrada, salida = "";
             char[] vector = new char[formula.Length];
 
             using (StringReader sr = new StringReader(formula))
             {
                 sr.Read(vector, 0, formula.Length);
 
-                for(int i=0;i<formula.Length;i++)
+                for (int i = 0; i < formula.Length; i++)
                 {
                     Nodo prueba = new Nodo(vector[i]);
                     salida += vector[i];
@@ -46,7 +42,7 @@ namespace arbolFinal
             }
 
             return salida;
-          }
+        }
 
         /// <Lista_Doble>
         /// Este lo agrega en una lista doble
@@ -62,7 +58,7 @@ namespace arbolFinal
             else
                 agregarProducto(Primero, nuevo);
 
-        }     
+        }
 
         /// <Recursivo>
         /// Recursivo de agregar lista doble
@@ -95,7 +91,7 @@ namespace arbolFinal
 
             while (Actual != null)
             {
-                switch(Actual.Dato)
+                switch (Actual.Dato)
                 {
                     case '*':
                         agregarIzquierdo(Actual);
@@ -143,7 +139,7 @@ namespace arbolFinal
             Nodo atras = nuevo.Anterior;
             nuevo.hijoI = atras;
             atras = atras.Anterior;
-            if(atras==null)
+            if (atras == null)
             {
                 Primero = nuevo;
                 Primero.Anterior = null;
@@ -169,9 +165,9 @@ namespace arbolFinal
             nuevo.hijoD = despues;
 
             despues = despues.Siguiente;
-            if(despues==null)
+            if (despues == null)
             {
-                Ultimo=nuevo;
+                Ultimo = nuevo;
                 Ultimo.Siguiente = null;
                 Ultimo.hijoD.Anterior = null;
             }
@@ -221,18 +217,19 @@ namespace arbolFinal
             return mostrarPost;
         }
 
-//*********************************** Calculos//
+        //*********************************** Calculos por PreOrden//
 
         public int calculoPreOrden()
         {
+            leerAgregar paraPre = new leerAgregar();
             CalculoPre nuevo = new CalculoPre();
-            leerPre(mostrarPre2);
-            Caracter ultimo = ultimoPre;
+            paraPre.leer(mostrarPre2);
+            Caracter ultimo = paraPre.Ultimo;
 
-            for(int i=0;i<mostrarPre2.Length;i++)
+            for (int i = 0; i < mostrarPre2.Length; i++)
             {
-                if(ultimo.Dato != "*" && ultimo.Dato != "/" && ultimo.Dato != "+" && ultimo.Dato != "-")
-                { 
+                if (ultimo.Dato != "*" && ultimo.Dato != "/" && ultimo.Dato != "+" && ultimo.Dato != "-")
+                {
                     nuevo.agregarPilaPre(new Caracter(ultimo.Dato));
                     ultimo = ultimo.Anterior;
                 }
@@ -244,10 +241,10 @@ namespace arbolFinal
                             nuevo.sacarUltimo();
                             string segundo = nuevo.verUltimo().Dato;
                             nuevo.sacarUltimo();
-                  
-                            int ultimoPre = Convert.ToInt16(primero), anteultimoPre= Convert.ToInt16(segundo), multiplicar;
-                            multiplicar=ultimoPre*anteultimoPre;
-                   
+
+                            int ultimoPre = Convert.ToInt16(primero), anteultimoPre = Convert.ToInt16(segundo), multiplicar;
+                            multiplicar = ultimoPre * anteultimoPre;
+
                             string convertido = Convert.ToString(multiplicar);
                             nuevo.agregarPilaPre(new Caracter(convertido));
                             ultimo = ultimo.Anterior;
@@ -298,74 +295,16 @@ namespace arbolFinal
         }
 
 
-
-
-        /// <Principio>
-        /// Lee mi cadena que pido al inicio y los separa por los caracteres que lo componen
-        /// </summary>
-        /// <param name="entrada"></param>
-        /// <returns></returns>
-        public void leerPre(string entrada)
-        {
-            string formula = entrada;
-            char[] vector = new char[formula.Length];
-
-            using (StringReader sr = new StringReader(formula))
-            {
-                sr.Read(vector, 0, formula.Length);
-
-                for (int i = 0; i < formula.Length; i++)
-                {
-                    Caracter prueba = new Caracter(vector[i].ToString());
-                    agregarPre(prueba);
-                }
-            }
-
-        }
-
-        /// <Lista_Doble>
-        /// Este lo agrega en una lista doble
-        /// </summary>
-        /// <param name="nuevo"></param>
-        public void agregarPre(Caracter nuevo)
-        {
-            if (primeroPost == null)
-            {
-                primeroPost = nuevo;
-                ultimoPre = nuevo;
-            }
-            else
-                agregarPre(primeroPost, nuevo);
-
-        }
-
-        /// <Recursivo>
-        /// Recursivo de agregar lista doble
-        /// </summary>
-        /// <param name="ultimo"></param>
-        /// <param name="nuevo"></param>
-        private void agregarPre(Caracter ultimo, Caracter nuevo)
-        {
-            if (ultimo.Siguiente == null)
-            {
-                ultimoPre = nuevo;
-                ultimo.Siguiente = nuevo;
-                ultimoPre.Anterior = ultimo;
-            }
-            else
-                agregarPre(ultimo.Siguiente, nuevo);
-
-        }
-
-
-
+        //*********************************** Calculos por PostOrden//
 
 
         public int calculoPostOrden()
         {
+            leerAgregar paraPost = new leerAgregar();
             CalculoPre nuevo = new CalculoPre();
-            leerPre(mostrarPost2);
-            Caracter primero = primeroPost;
+            paraPost.leer(mostrarPost2);
+            Caracter primero = paraPost.Primero;
+
 
             for (int i = 0; i < mostrarPost2.Length; i++)
             {
